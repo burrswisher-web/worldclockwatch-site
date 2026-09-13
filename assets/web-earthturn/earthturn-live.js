@@ -31,7 +31,7 @@
       this.home = this.getAttribute('home') || 'mtx';
       this.hourOffset = 0;
       this.dayOffset = 0;
-      const pill = "cursor:pointer; border:1px solid #2B3D49; background:#0E1720; color:#EAF2F5; padding:7px 14px; border-radius:999px; font:inherit";
+      const pill = "cursor:pointer; border:1px solid #2B3D49; background:#0E1720; color:#EAF2F5; padding:7px 14px; border-radius:999px; font:inherit; white-space:nowrap";
       const ghost = "cursor:pointer; border:1px solid #2B3D49; background:transparent; color:#93A2AD; padding:6px 12px; border-radius:6px; font:inherit";
       this.innerHTML = '<div style="display:grid; justify-items:center; gap:16px">'
         + '<canvas role="img" aria-label="EarthTurn watch face, drawn live" style="width:min(340px,84vw); aspect-ratio:1; border-radius:50%; display:block; background:#1A2530"></canvas>'
