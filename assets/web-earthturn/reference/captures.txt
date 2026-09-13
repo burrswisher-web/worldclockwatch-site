@@ -1,0 +1,5 @@
+vintage.png=2026-09-13T09:47:34Z
+dark.png=2026-09-13T08:34:38Z
+watchTimeZone=Europe/Zurich
+watchLocalOffsetMinutes=120
+settings=zone1 nyc, zone2 syd, home mtx, datechange labels (zones as on the wearer's watch; the shipping defaults are ind and akl)
