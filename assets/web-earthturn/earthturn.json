@@ -98,7 +98,7 @@
     "layoutRule": "Zone 2 off: Zone 1 in the single block; Zone 2 on: Zone 1 left, Zone 2 right in the pair boxes"
   },
   "cityDots": {
-    "shape": "14 px disc in the paper colour #F1E6C8 with a 10 px disc on top, zoneOrange for the two zones and dotRed for home, centred on the projected city, in the rotating map frame",
+    "shape": "14 px disc in the paper colour #F1E6C8 with a 10 px disc on top, zoneOrange for the two zones; home is a 10 px homeDot disc in a 14 px homeRing disc instead, centred on the projected city, in the rotating map frame",
     "shownFor": ["zone1", "zone2", "home"],
     "zones": {
       "ppg": {"name": "Pago Pago", "tz": "Pacific/Pago_Pago", "lat": -14.28, "lon": -170.7, "x": 250.2781, "y": 379.364},
@@ -176,8 +176,8 @@
   },
   "colors": {
     "vintage": {"ink": "#3B3220", "paper": "#F1E6C8", "ocean": "#A9CBE0", "land": "#D9C88F", "coast": "#6B5A3A", "grid": "#4A4030", "gridAlpha": 115, "numerals": "#1E4699", "numeralsNight": "#A9CBE0", "numeralsNightOutline": "#000000", "timeText": "#3B3220", "outline": "#F1E6C8", "accent": "#C2551F", "dateLabel": "#F1E6C8", "dateLabelOutline": "#000000", "night": "#1A2233", "nightAlpha": 140},
-    "dark": {"ink": "#DDDDDD", "paper": "#000000", "ocean": "#0B1A2A", "land": "#2E4A3A", "coast": "#5F8F6A", "grid": "#FFFFFF", "gridAlpha": 31, "numerals": "#9EC1FF", "numeralsNight": "#9EC1FF", "numeralsNightOutline": "#000000", "timeText": "#DDDDDD", "outline": "#000000", "accent": "#FF6B35", "dateLabel": "#FF6B35", "dateLabelOutline": "#000000", "night": "#000000", "nightAlpha": 115},
-    "shared": {"dotRed": "#D32F2F", "zoneOrange": "#C2551F", "dotRing": "#F1E6C8", "batteryRed": "#EF7067", "batteryAmber": "#FFC107", "zoneInk": "#F1E6C8", "zoneOutline": "#000000"}
+    "dark": {"ink": "#DDDDDD", "paper": "#000000", "ocean": "#132C45", "land": "#2E4A3A", "coast": "#5F8F6A", "grid": "#FFFFFF", "gridAlpha": 31, "numerals": "#9EC1FF", "numeralsNight": "#9EC1FF", "numeralsNightOutline": "#000000", "timeText": "#DDDDDD", "outline": "#000000", "accent": "#FF6B35", "dateLabel": "#FF6B35", "dateLabelOutline": "#000000", "night": "#000000", "nightAlpha": 115},
+    "shared": {"dotRed": "#D32F2F", "zoneOrange": "#C2551F", "dotRing": "#F1E6C8", "homeDot": "#FFFFFF", "homeRing": "#000000", "batteryRed": "#EF7067", "batteryAmber": "#FFC107", "zoneInk": "#F1E6C8", "zoneOutline": "#000000"}
   },
   "fonts": {
     "family": "Barlow (Google Fonts, OFL)",
@@ -187,14 +187,14 @@
   "ambient": "in ambient mode the watch shows the dark style with no dots, no wedge, no label and no zone blocks; not needed on the web",
   "renderChecklist": [
     "Draw the date-line label (dateLine.label): '+1d' or '-1d' in Barlow Bold 26, colors.<style>.dateLabel over eight black outline copies, placed by dateLine.label.branches (pinned on screen by the time block and the zone blocks, else in the rotating map frame). It is shown whenever the datechange setting is 'labels' (the default), which is the setting the reference captures use.",
-    "Hatch the other-date side with red slashes under the night (dateLine.wedge.hatch), not a flat tint; draw the zone dots orange and home red above everything else on the map; draw every numeral at 30 px, the vintage night half in numeralsNight over black.",
+    "Hatch the other-date side with red slashes under the night (dateLine.wedge.hatch), not a flat tint; draw the zone dots orange and home white in a black ring above everything else on the map; draw every numeral at 30 px, the vintage night half in numeralsNight over black.",
     "Format the time and date with the en-US locale, as the watch does: ICU 'h:mm a' gives '5:46 AM' (no leading zero, AM/PM), 'EEE, MMM d' gives 'Wed, Sep 9'. Not the en-GB forms '5:46' and 'Wed 2 Sept'.",
     "Tint the other-date side (dateLine.wedge): outsideShape when inWedge is false, insideShape when it is true; the wearer's own place is never inside the tint."
   ],
   "reference": {
     "note": "screenshots from the Galaxy Watch 7 at the UTC instants below (the watch clock cannot be posed); the settings in effect are listed under settings",
-    "vintage.png": "2026-09-13T09:47:34Z",
-    "dark.png": "2026-09-13T08:34:38Z",
+    "vintage.png": "2026-09-14T07:20:20Z",
+    "dark.png": "2026-09-14T07:01:16Z",
     "watchTimeZone": "Europe/Zurich",
     "watchLocalOffsetMinutes": "120",
     "settings": "zone1 nyc, zone2 syd, home mtx, datechange labels (zones as on the wearer's watch; the shipping defaults are ind and akl)"

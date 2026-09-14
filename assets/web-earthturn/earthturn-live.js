@@ -1,7 +1,7 @@
 // EarthTurn, drawn live in the browser for worldclockwatch.com.
 // It follows earthturn.json (written by tools/web.ps1 from the face generator), so the geometry,
 // colours and the date-line label's placement table are the watch's own. Face as of 2026-09-13:
-// red hatch under the night, orange zone dots and red home dot, 30 px numerals (vintage night half
+// red hatch under the night, orange zone dots and white home dot, 30 px numerals (vintage night half
 // in ocean blue over black), a red rim pointer, paper zone text over black, the label pinned by the
 // time block and the zone blocks.
 //
@@ -31,7 +31,7 @@
       this.home = this.getAttribute('home') || 'mtx';
       this.hourOffset = 0;
       this.dayOffset = 0;
-      const pill = "cursor:pointer; border:1px solid #2B3D49; background:#0E1720; color:#EAF2F5; padding:7px 14px; border-radius:999px; font:inherit; white-space:nowrap";
+      const pill = "cursor:pointer; border:1px solid #2B3D49; background:#0E1720; color:#EAF2F5; padding:7px 14px; border-radius:999px; font:inherit";
       const ghost = "cursor:pointer; border:1px solid #2B3D49; background:transparent; color:#93A2AD; padding:6px 12px; border-radius:6px; font:inherit";
       this.innerHTML = '<div style="display:grid; justify-items:center; gap:16px">'
         + '<canvas role="img" aria-label="EarthTurn watch face, drawn live" style="width:min(340px,84vw); aspect-ratio:1; border-radius:50%; display:block; background:#1A2530"></canvas>'
@@ -308,9 +308,9 @@
       // 8. the dots, turning with the map, above everything else on it
       ctx.save();
       ctx.translate(C, C); ctx.rotate(rad(mapAngle)); ctx.translate(-C, -C);
-      for (const [id, fill] of [[this.zone1, S.zoneOrange], [twoZones ? this.zone2 : null, S.zoneOrange], [this.home, S.dotRed]]) {
+      for (const [id, fill, ring] of [[this.zone1, S.zoneOrange, S.dotRing], [twoZones ? this.zone2 : null, S.zoneOrange, S.dotRing], [this.home, S.homeDot, S.homeRing]]) {
         const z = id && zones[id]; if (!z) continue;
-        ctx.beginPath(); ctx.arc(z.x, z.y, 7, 0, Math.PI * 2); ctx.fillStyle = S.dotRing; ctx.fill();
+        ctx.beginPath(); ctx.arc(z.x, z.y, 7, 0, Math.PI * 2); ctx.fillStyle = ring; ctx.fill();
         ctx.beginPath(); ctx.arc(z.x, z.y, 5, 0, Math.PI * 2); ctx.fillStyle = fill; ctx.fill();
       }
       ctx.restore();
