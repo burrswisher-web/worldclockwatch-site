@@ -52,7 +52,7 @@
       "placement": "70 x 32 box centred 165 from the disc centre, in the rotating map frame: at 192 degrees (12 clockwise of the line, inside the wedge) for +1d, at 168 degrees for -1d; the box is counter-rotated so the text stays upright",
       "screenAngle": "theta = wrap180(A + 180 - utcMinutesOfDay / 4), clockwise from up, A = 168 for -1d and 192 for +1d",
       "pinned": "since 2026-09-13 the label never sits under the time block or the zone blocks: while theta is within 55 degrees of up (the time block) it is pinned at radius 165 and exactly +/-55 degrees, upright and fixed on screen; while theta is within 50 degrees of down (the zone blocks) likewise at +/-130. The side: -1d may sit anywhere from the line counter-clockwise round to 180 (down), +1d anywhere from the line clockwise to 180; the label takes the arc edge between the line and the arc while the line is still within 12 degrees beyond that edge, else the far edge",
-      "branches": {"-1d": {"frameAngle": 168, "list": [{"afterMinute": 1172, "upToMinute": 1220, "wrapsMidnight": false, "pinScreenAngle": 55}, {"afterMinute": 1220, "upToMinute": 172, "wrapsMidnight": true, "pinScreenAngle": -55}, {"afterMinute": 672, "upToMinute": 872, "wrapsMidnight": false, "pinScreenAngle": 130}, {"afterMinute": 472, "upToMinute": 520, "wrapsMidnight": false, "pinScreenAngle": -130}, {"afterMinute": 520, "upToMinute": 672, "wrapsMidnight": false, "pinScreenAngle": null}]}, "+1d": {"frameAngle": 192, "list": [{"afterMinute": 220, "upToMinute": 268, "wrapsMidnight": false, "pinScreenAngle": -55}, {"afterMinute": 1268, "upToMinute": 220, "wrapsMidnight": true, "pinScreenAngle": 55}, {"afterMinute": 568, "upToMinute": 768, "wrapsMidnight": false, "pinScreenAngle": -130}, {"afterMinute": 920, "upToMinute": 968, "wrapsMidnight": false, "pinScreenAngle": 130}, {"afterMinute": 768, "upToMinute": 920, "wrapsMidnight": false, "pinScreenAngle": null}]}},
+      "branches": {"-1d": {"frameAngle": 168, "list": [{"afterMinute": 1172, "upToMinute": 1220, "wrapsMidnight": false, "pinScreenAngle": 55}, {"afterMinute": 1220, "upToMinute": 172, "wrapsMidnight": true, "pinScreenAngle": -55}, {"afterMinute": 720, "upToMinute": 872, "wrapsMidnight": false, "pinScreenAngle": 130}, {"afterMinute": 472, "upToMinute": 520, "wrapsMidnight": false, "pinScreenAngle": -130}, {"afterMinute": 520, "upToMinute": 672, "wrapsMidnight": false, "pinScreenAngle": null}, {"afterMinute": 672, "upToMinute": 720, "wrapsMidnight": false, "pinScreenAngle": null}]}, "+1d": {"frameAngle": 192, "list": [{"afterMinute": 220, "upToMinute": 268, "wrapsMidnight": false, "pinScreenAngle": -55}, {"afterMinute": 1268, "upToMinute": 220, "wrapsMidnight": true, "pinScreenAngle": 55}, {"afterMinute": 568, "upToMinute": 720, "wrapsMidnight": false, "pinScreenAngle": -130}, {"afterMinute": 920, "upToMinute": 968, "wrapsMidnight": false, "pinScreenAngle": 130}, {"afterMinute": 768, "upToMinute": 920, "wrapsMidnight": false, "pinScreenAngle": null}, {"afterMinute": 720, "upToMinute": 768, "wrapsMidnight": false, "pinScreenAngle": null}]}},
       "branchesHow": "for the label shown ('-1d' or '+1d'), take the first entry whose minutes match m = utcMinutesOfDay: afterMinute < m <= upToMinute, or with wrapsMidnight m > afterMinute or m <= upToMinute. pinScreenAngle: draw the label upright, fixed on screen, centred 165 from the centre at that angle (clockwise from up). pinScreenAngle null: draw it in the rotating map frame at frameAngle and innerRadius, counter-rotated. No entry matches: the rotating map frame at frameAngle and radius 165. Generated from the face's own table, so it matches the watch minute for minute.",
       "innerRadius": 105,
       "font": "Barlow Bold 26, centred",
@@ -83,7 +83,7 @@
     "outline": "every line is drawn eight times in the paper colour at offsets (-2,0) (2,0) (0,-2) (0,2) (-1,-1) (1,-1) (-1,1) (1,1), then once in ink on top",
     "time": {"box": [0, 0, 190, 54], "font": "Barlow Bold 48, centred", "format": "ICU 'h:mm' in 12-hour mode (gives '9:30 AM'), 'HH:mm' in 24-hour mode"},
     "date": {"box": [0, 54, 190, 30], "font": "Barlow SemiBold 22, centred", "format": "ICU 'EEE d MMM' (gives 'Wed 9 Sep'; the watch localises)"},
-    "battery": {"box": [0, 84, 190, 28], "font": "Barlow Bold 22, centred", "rule": "'<n>%' in batteryRed at 15% and below, '100%' in batteryAmber when full, nothing otherwise"},
+    "battery": {"box": [0, 84, 190, 28], "font": "Barlow Bold 22, centred", "rule": "'<n>%' at 15% and below in batteryLowVintage on vintage and batteryRed on dark, '100%' when full in batteryFullVintage on vintage and batteryAmber on dark, nothing otherwise"},
     "ink": {"vintage": "#3B3220", "dark": "#DDDDDD"}
   },
   "zoneBlocks": {
@@ -177,7 +177,7 @@
   "colors": {
     "vintage": {"ink": "#3B3220", "paper": "#F1E6C8", "ocean": "#A9CBE0", "land": "#D9C88F", "coast": "#6B5A3A", "grid": "#4A4030", "gridAlpha": 115, "numerals": "#1E4699", "numeralsNight": "#A9CBE0", "numeralsNightOutline": "#000000", "timeText": "#3B3220", "outline": "#F1E6C8", "accent": "#C2551F", "dateLabel": "#F1E6C8", "dateLabelOutline": "#000000", "night": "#1A2233", "nightAlpha": 140},
     "dark": {"ink": "#DDDDDD", "paper": "#000000", "ocean": "#132C45", "land": "#2E4A3A", "coast": "#5F8F6A", "grid": "#FFFFFF", "gridAlpha": 31, "numerals": "#9EC1FF", "numeralsNight": "#9EC1FF", "numeralsNightOutline": "#000000", "timeText": "#DDDDDD", "outline": "#000000", "accent": "#FF6B35", "dateLabel": "#FF6B35", "dateLabelOutline": "#000000", "night": "#000000", "nightAlpha": 115},
-    "shared": {"dotRed": "#D32F2F", "zoneOrange": "#C2551F", "dotRing": "#F1E6C8", "homeDot": "#FFFFFF", "homeRing": "#000000", "batteryRed": "#EF7067", "batteryAmber": "#FFC107", "zoneInk": "#F1E6C8", "zoneOutline": "#000000"}
+    "shared": {"dotRed": "#D32F2F", "zoneOrange": "#C2551F", "zone1Cyan": "#2FB8C8", "zone1Code": "#4FD8E6", "zone2Code": "#FF8A3D", "dotRing": "#F1E6C8", "homeDot": "#FFFFFF", "homeRing": "#000000", "batteryRed": "#EF7067", "batteryAmber": "#FFC107", "batteryFullVintage": "#2E7D32", "batteryLowVintage": "#B71C1C", "zoneInk": "#F1E6C8", "zoneOutline": "#000000"}
   },
   "fonts": {
     "family": "Barlow (Google Fonts, OFL)",
@@ -193,10 +193,10 @@
   ],
   "reference": {
     "note": "screenshots from the Galaxy Watch 7 at the UTC instants below (the watch clock cannot be posed); the settings in effect are listed under settings",
-    "vintage.png": "2026-09-14T07:20:20Z",
-    "dark.png": "2026-09-14T07:01:16Z",
+    "vintage.png": "2026-09-15T19:48:52Z",
+    "dark.png": "2026-09-15T19:51:56Z",
     "watchTimeZone": "Europe/Zurich",
     "watchLocalOffsetMinutes": "120",
-    "settings": "zone1 nyc, zone2 syd, home mtx, datechange labels (zones as on the wearer's watch; the shipping defaults are ind and akl)"
+    "settings": "zone1 nyc, zone2 cxi, home mtx, datechange labels (zones as on the wearer's watch; the shipping defaults are ind and akl)"
   }
 }

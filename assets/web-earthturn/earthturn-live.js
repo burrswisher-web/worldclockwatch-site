@@ -308,7 +308,7 @@
       // 8. the dots, turning with the map, above everything else on it
       ctx.save();
       ctx.translate(C, C); ctx.rotate(rad(mapAngle)); ctx.translate(-C, -C);
-      for (const [id, fill, ring] of [[this.zone1, S.zoneOrange, S.dotRing], [twoZones ? this.zone2 : null, S.zoneOrange, S.dotRing], [this.home, S.homeDot, S.homeRing]]) {
+      for (const [id, fill, ring] of [[this.zone1, S.zone1Cyan || S.zoneOrange, S.dotRing], [twoZones ? this.zone2 : null, S.zoneOrange, S.dotRing], [this.home, S.homeDot, S.homeRing]]) {
         const z = id && zones[id]; if (!z) continue;
         ctx.beginPath(); ctx.arc(z.x, z.y, 7, 0, Math.PI * 2); ctx.fillStyle = ring; ctx.fill();
         ctx.beginPath(); ctx.arc(z.x, z.y, 5, 0, Math.PI * 2); ctx.fillStyle = fill; ctx.fill();
@@ -319,9 +319,10 @@
       // 9. the zones at the bottom, paper over black
       const localDay = this.dayNo(localTz, date);
       const blocks = twoZones
-        ? [[this.zone1, 100, 352, 120, 32, 84, 26, 40, 28, 20], [this.zone2, 230, 352, 120, 32, 84, 26, 40, 28, 20]]
-        : [[this.zone1, 95, 376, 260, 32, 158, 35, 38, 30, 22]];
-      for (const [id, bx, by, bw, hourSize, markX, markSize, nameY, nameH, nameSize] of blocks) {
+        ? [[this.zone1, 100, 352, 120, 32, 84, 26, 40, 28, 20, S.zone1Code || S.zoneInk], [this.zone2, 230, 352, 120, 32, 84, 26, 40, 28, 20, S.zone2Code || S.zoneInk]]
+        : [[this.zone1, 95, 376, 260, 32, 158, 35, 38, 30, 22, S.zone1Code || S.zoneInk]];
+      // the code takes its zone's colour, like its dot (zone 1 cyan, zone 2 orange; 2026-09-15)
+      for (const [id, bx, by, bw, hourSize, markX, markSize, nameY, nameH, nameSize, codeInk] of blocks) {
         const z = zones[id]; if (!z) continue;
         const hh = new Intl.DateTimeFormat('en-GB', { timeZone: z.tz, hour: '2-digit', hourCycle: 'h23' }).format(date);
         ctx.font = '700 ' + hourSize + 'px ' + FONT;
@@ -336,7 +337,7 @@
         const mm = (((this.tzOffset(z.tz, date) - localOff) % 60) + 60) % 60;
         const mk = (mm === 30 || mm === 45 || mm === 15) ? '+' + mm + 'm' : '';
         ctx.font = '700 ' + nameSize + 'px ' + FONT;
-        this.outlined(ctx, id.toUpperCase() + ' ' + mk, bx + bw / 2, by + nameY + nameH / 2, S.zoneInk, S.zoneOutline, HALO4);
+        this.outlined(ctx, id.toUpperCase() + ' ' + mk, bx + bw / 2, by + nameY + nameH / 2, codeInk, S.zoneOutline, HALO4);
       }
     }
 
