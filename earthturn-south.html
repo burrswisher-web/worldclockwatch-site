@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EarthTurn South: World Time Watch Face for Galaxy Watch with the Earth Seen from the South Pole | World Clock Watch</title>
+<link rel="canonical" href="https://worldclockwatch.com/earthturn-south.html">
+<meta name="description" content="A world clock watch face for Galaxy Watch and Wear OS. EarthTurn South is a map of the earth seen from above the South Pole, Antarctica at the centre, turning once a day under a 24-hour ring, with day, night and twilight drawn on it and two chosen time zones at the bottom.">
+<meta name="keywords" content="south pole watch face, southern hemisphere watch face, world time watch face, earth map watch face, day night map watch face galaxy watch, 24 hour world clock watch face, antarctica watch face wear os">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EarthTurn South: the turning earth, seen from the South Pole">
+<meta property="og:description" content="The earth from above the South Pole, Antarctica at the centre, turning once a day under a 24-hour ring. Day, night and twilight drawn live. Two chosen time zones at the bottom.">
+<meta property="og:url" content="https://worldclockwatch.com/earthturn-south.html">
+<meta property="og:image" content="https://worldclockwatch.com/assets/earthturn-south-vintage.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  @font-face { font-family:'Barlow'; font-style:normal; font-weight:600; font-display:swap; src:url(assets/fonts/barlow-600-latin.woff2) format('woff2'); }
+  @font-face { font-family:'Barlow'; font-style:normal; font-weight:700; font-display:swap; src:url(assets/fonts/barlow-700-latin.woff2) format('woff2'); }
+  @font-face { font-family:'Barlow Semi Condensed'; font-style:normal; font-weight:500; font-display:swap; src:url(assets/fonts/barlow-semi-condensed-500-latin.woff2) format('woff2'); }
+  @font-face { font-family:'Barlow Semi Condensed'; font-style:normal; font-weight:600; font-display:swap; src:url(assets/fonts/barlow-semi-condensed-600-latin.woff2) format('woff2'); }
+  @font-face { font-family:'IBM Plex Mono'; font-style:normal; font-weight:400; font-display:swap; src:url(assets/fonts/ibm-plex-mono-400-latin.woff2) format('woff2'); }
+  @font-face { font-family:'IBM Plex Mono'; font-style:normal; font-weight:500; font-display:swap; src:url(assets/fonts/ibm-plex-mono-500-latin.woff2) format('woff2'); }
+  @font-face { font-family:'IBM Plex Sans'; font-style:normal; font-weight:400 600; font-display:swap; src:url(assets/fonts/ibm-plex-sans-latin.woff2) format('woff2'); }
+  body { margin:0; background:#0B1116; color:#EAF2F5; font-family:'IBM Plex Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#68D5C0; text-decoration:none; }
+  a:hover { color:#8FE4D3; text-decoration:underline; }
+  * { box-sizing:border-box; }
+  @media (max-width:640px) {
+    header nav { gap:14px 18px !important; font-size:14px !important; }
+    header nav a[data-cta] { padding:8px 14px !important; }
+    header { padding:18px 0 14px !important; gap:14px !important; }
+  }
+</style>
+<script src="assets/web-earthturn-south/earthturn-south-live.js" defer></script>
+</head>
+<body>
+
+<div style="max-width:1180px; margin:0 auto; padding:0 clamp(18px,4vw,32px) 96px">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; padding:28px 0 8px; border-bottom:1px solid #21313C">
+    <a href="index.html" style="display:flex; align-items:center; gap:12px; color:#EAF2F5">
+      <span style="width:26px; height:26px; border-radius:50%; border:2px solid #68D5C0; display:block"></span>
+      <span style="font-family:'Barlow Semi Condensed',sans-serif; font-weight:600; font-size:19px; letter-spacing:0.02em">World Clock Watch</span>
+    </a>
+    <nav style="display:flex; align-items:center; gap:26px; flex-wrap:wrap; font-size:14.5px; color:#93A2AD">
+      <a href="earthturn.html" style="color:#93A2AD">EarthTurn</a>
+      <a href="earthturn-south.html" style="color:#EAF2F5">EarthTurn South</a>
+      <a href="meridian.html" style="color:#93A2AD">Meridian</a>
+      <a href="mercator.html" style="color:#93A2AD">Mercator</a>
+      <a href="moonrise.html" style="color:#93A2AD">Moonrise</a>
+      <a href="trio.html" style="color:#93A2AD">Trio</a>
+      <a href="home-and-away.html" style="color:#93A2AD">Home &amp; Away</a>
+      <a href="family.html" style="color:#93A2AD">Family</a>
+      <a href="ring.html" style="color:#93A2AD">24-Hour Ring</a>
+      <a href="index.html#zones" style="color:#93A2AD">Zones</a>
+      <a href="shortcuts.html" style="color:#93A2AD">Shortcuts</a>
+      <a href="setup.html" style="color:#93A2AD">Setup</a>
+      <span style="display:flex; align-items:center; gap:10px; padding-left:16px; border-left:1px solid #2B3D49">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#5D6E79">Phone</span>
+        <a href="meantime.html" style="color:#93A2AD">Meantime</a>
+      </span>
+      <a href="https://play.google.com/store/apps/developer?id=Meridian+Works" target="_blank" rel="noopener" data-cta="1" style="background:#68D5C0; color:#08131A; font-weight:600; padding:9px 16px; border-radius:999px">Get it on Google Play</a>
+    </nav>
+  </header>
+
+  <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(32px,5vw,56px); align-items:center; padding:clamp(36px,6vw,64px) 0 clamp(48px,7vw,76px)">
+    <div style="display:grid; justify-items:center; gap:28px">
+      <div style="width:min(320px,80vw); aspect-ratio:1; border-radius:50%; padding:11px; background:#1A2530; box-shadow:0 26px 60px rgba(0,0,0,0.5)">
+        <img src="assets/earthturn-south-vintage.png" alt="EarthTurn South watch face in the vintage atlas style: a map of the earth seen from above the South Pole, Antarctica in the middle, 8:12 PM on Tuesday December 15 in Sydney, daylight over Africa and Antarctica, night over the Pacific, Johannesburg and Santiago times at the bottom" style="width:100%; height:100%; border-radius:50%; display:block">
+      </div>
+      <div style="width:min(320px,80vw); aspect-ratio:1; border-radius:50%; padding:11px; background:#1A2530; box-shadow:0 26px 60px rgba(0,0,0,0.5)">
+        <img src="assets/earthturn-south-dark.png" alt="EarthTurn South in the dark style: the same polar map in green on a deep blue sea, 8:15 PM on Tuesday December 15, Johannesburg and Santiago at the bottom" style="width:100%; height:100%; border-radius:50%; display:block">
+      </div>
+      <p style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:#7E8D97; margin:-10px 0 0">Vintage atlas · Dark</p>
+    </div>
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; color:#68D5C0; margin:0 0 20px">EarthTurn, turned over · For the southern half of the world</p>
+      <h1 style="font-family:'Barlow Semi Condensed',sans-serif; font-weight:600; font-size:clamp(32px,7vw,58px); line-height:1.06; letter-spacing:-0.01em; margin:0 0 20px; text-wrap:balance">EarthTurn<sup style="font-size:0.4em; vertical-align:super; line-height:0; margin-left:1px; font-weight:500">™</sup> South: the world, from the bottom up</h1>
+      <p style="font-size:18px; line-height:1.6; color:#B9C6CD; margin:0 0 28px; max-width:44ch; text-wrap:pretty">The <a href="earthturn.html">EarthTurn</a> watch face, seen from above the South Pole. Antarctica sits in the middle, with South America, Africa and Australia laid out around it. Seen from the south the earth turns clockwise, so the map turns clockwise once a day under a fixed ring of 24 hours with the sun at the top, and every place's hour is the numeral it points at. Night, day and the twilight between them are drawn where they really are. Your time sits large under the 12; two places you care about sit at the bottom.</p>
+      <div style="display:flex; gap:14px; flex-wrap:wrap">
+        <span style="display:inline-block; background:#1A2530; color:#93A2AD; border:1px solid #2B3D49; font-weight:600; font-size:16px; padding:14px 24px; border-radius:8px; white-space:nowrap">Coming soon to Google Play</span>
+        <a href="#live" style="border:1px solid #2B3D49; color:#EAF2F5; font-weight:500; font-size:16px; padding:14px 22px; border-radius:8px; white-space:nowrap">Try it live</a>
+      </div>
+      <p style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#7E8D97; margin:20px 0 0">In the works · for Wear OS 6 or later, like EarthTurn</p>
+    </div>
+  </section>
+
+  <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:28px">
+    <div style="border-top:2px solid #68D5C0; padding:22px 0 0">
+      <h3 style="font-family:'Barlow Semi Condensed',sans-serif; font-size:21px; font-weight:600; margin:0 0 10px">Antarctica at the centre</h3>
+      <p style="font-size:15.5px; line-height:1.65; color:#A9B7BF; margin:0">The South Pole is the middle of the face, and Antarctica is drawn with its ice shelves, so it has the shape you know. The southern continents spread round it at their true distances from the pole; the north stretches out toward the rim, as the south does on EarthTurn.</p>
+    </div>
+    <div style="border-top:2px solid #68D5C0; padding:22px 0 0">
+      <h3 style="font-family:'Barlow Semi Condensed',sans-serif; font-size:21px; font-weight:600; margin:0 0 10px">A clockwise world</h3>
+      <p style="font-size:15.5px; line-height:1.65; color:#A9B7BF; margin:0">From below, the earth spins the other way. The map turns clockwise and the 24 hours run round the ring in the same direction as an ordinary clock. Find a place on the map, look outward to the ring: the numeral it points at is the hour there.</p>
+    </div>
+    <div style="border-top:2px solid #68D5C0; padding:22px 0 0">
+      <h3 style="font-family:'Barlow Semi Condensed',sans-serif; font-size:21px; font-weight:600; margin:0 0 10px">Day and night, live</h3>
+      <p style="font-size:15.5px; line-height:1.65; color:#A9B7BF; margin:0">The dark part of the map is where it is night right now, with a real twilight band at the edge. The shading follows the seasons, so Antarctica is lit all day through the southern summer and dark through the winter.</p>
+    </div>
+    <div style="border-top:2px solid #68D5C0; padding:22px 0 0">
+      <h3 style="font-family:'Barlow Semi Condensed',sans-serif; font-size:21px; font-weight:600; margin:0 0 10px">Tomorrow, marked</h3>
+      <p style="font-size:15.5px; line-height:1.65; color:#A9B7BF; margin:0">The dashed line is the International Date Line. Whichever part of the world is on a different date from yours is hatched with fine red slashes and marked <span style="font-family:'IBM Plex Mono',monospace; color:#EAF2F5">+1d</span>, or <span style="font-family:'IBM Plex Mono',monospace; color:#EAF2F5">-1d</span> once your own midnight has passed.</p>
+    </div>
+  </section>
+
+  <section id="reading" style="padding:96px 0 0">
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif; font-weight:600; font-size:clamp(26px,5vw,40px); margin:0 0 14px; letter-spacing:-0.01em">How to read it</h2>
+    <p style="font-size:17px; color:#93A2AD; margin:0 0 36px; max-width:64ch; line-height:1.6; text-wrap:pretty">The face in the picture above is a Tuesday evening in Sydney in December, with Johannesburg and Santiago chosen as the two zones. Here is what each part is telling you.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:18px">
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#68D5C0; margin:0 0 10px">Top</p>
+        <p style="font-size:17px; line-height:1.5; color:#EAF2F5; margin:0 0 8px; font-weight:600">Your time and date</p>
+        <p style="font-size:15px; line-height:1.6; color:#A9B7BF; margin:0">8:12 PM, Tue, Dec 15, written large under the 12 and outlined so it reads over the map. The short red bar on the rim, just past the 20, is your own hour on the ring.</p>
+      </div>
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#68D5C0; margin:0 0 10px">The map</p>
+        <p style="font-size:17px; line-height:1.5; color:#EAF2F5; margin:0 0 8px; font-weight:600">Who is awake</p>
+        <p style="font-size:15px; line-height:1.6; color:#A9B7BF; margin:0">Africa in full daylight at the top, Sydney's white dot on the edge of the evening on the right, Santiago's orange dot on the left still waiting for dawn. In the middle, Antarctica is lit all the way round: in December the sun does not set there.</p>
+      </div>
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#68D5C0; margin:0 0 10px">Bottom</p>
+        <p style="font-size:17px; line-height:1.5; color:#EAF2F5; margin:0 0 8px; font-weight:600">Two places, as hours</p>
+        <p style="font-size:15px; line-height:1.6; color:#A9B7BF; margin:0">11 over JNB in cyan: eleven in the morning in Johannesburg. 06 over SCL in orange: six in the morning in Santiago, the same Tuesday. Each code takes its dot's colour, so you can tell at a glance which dot on the map is which. A +1d or -1d appears beside the hour when a place is on another date, and +30m after the name for a half-hour zone such as India.</p>
+      </div>
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#68D5C0; margin:0 0 10px">Lower right</p>
+        <p style="font-size:17px; line-height:1.5; color:#EAF2F5; margin:0 0 8px; font-weight:600">The date line</p>
+        <p style="font-size:15px; line-height:1.6; color:#A9B7BF; margin:0">The dashed line running from the pole to the lower right is the International Date Line. Everything from it clockwise round to the 24 at the bottom is hatched with red slashes and marked -1d: the part of the world still on Monday, Hawaii and Tahiti among it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="live" style="padding:96px 0 0">
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif; font-weight:600; font-size:clamp(26px,5vw,40px); margin:0 0 14px; letter-spacing:-0.01em">Try it here, at this moment</h2>
+    <p style="font-size:17px; color:#93A2AD; margin:0 0 36px; max-width:64ch; line-height:1.6; text-wrap:pretty">The same map, night shapes and maths as the watch, drawn in your browser at the time it is right now, with Johannesburg and Santiago as the two zones and Sydney as home. Spin the day, or press Play a day, to watch the world turn; move the seasonal sun, or press Play a year, to watch Antarctica go from midnight sun to polar night.</p>
+    <earthturn-south-live map-style="vintage" zone1="jnb" zone2="scl" home="syd"></earthturn-south-live>
+    <p style="font-size:14.5px; color:#7E8D97; margin:26px auto 0; max-width:60ch; line-height:1.6; text-align:center">A demonstration, not the product. On the wrist the face draws itself, with your own choice of zones.</p>
+  </section>
+
+  <section id="seasons" style="padding:96px 0 0">
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif; font-weight:600; font-size:clamp(26px,5vw,40px); margin:0 0 14px; letter-spacing:-0.01em">Night changes shape with the seasons</h2>
+    <p style="font-size:17px; color:#93A2AD; margin:0 0 36px; max-width:64ch; line-height:1.6; text-wrap:pretty">The dark side is not a fixed half-circle. It follows the sun's position through the year, so the shape of night changes with the seasons, not just where it sits. The soft edge is real twilight, from sunset to the end of nautical twilight. From the south, the seasons run the other way round from EarthTurn.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:18px">
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#68D5C0; margin:0 0 10px">December</p>
+        <p style="font-size:17px; line-height:1.5; color:#EAF2F5; margin:0 0 8px; font-weight:600">A small cap, pulled from the pole</p>
+        <p style="font-size:15px; line-height:1.6; color:#A9B7BF; margin:0">Everything south of the Antarctic Circle stays lit all day, and the night edge bulges toward the equator. Long summer evenings in Melbourne, Cape Town and Buenos Aires.</p>
+      </div>
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#68D5C0; margin:0 0 10px">March · September</p>
+        <p style="font-size:17px; line-height:1.5; color:#EAF2F5; margin:0 0 8px; font-weight:600">Straight through the pole</p>
+        <p style="font-size:15px; line-height:1.6; color:#A9B7BF; margin:0">At the equinoxes the line runs nearly through the centre and every place gets about twelve hours of dark.</p>
+      </div>
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#68D5C0; margin:0 0 10px">June</p>
+        <p style="font-size:17px; line-height:1.5; color:#EAF2F5; margin:0 0 8px; font-weight:600">A large cap over the pole</p>
+        <p style="font-size:15px; line-height:1.6; color:#A9B7BF; margin:0">Antarctica is dark all day, and the southern winter nights are long.</p>
+      </div>
+    </div>
+    <p style="font-size:15.5px; color:#93A2AD; margin:26px 0 0; max-width:64ch; line-height:1.6">Under the hood: EarthTurn's own 24 night shapes, taken in reverse order. The night over the South Pole in June is the night over the North Pole in December, so the same shapes serve both faces, with the same accuracy: the night edge within two or three degrees of the truth. <a href="earthturn.html#seasons">How accurate the shading is.</a></p>
+  </section>
+
+  <section id="settings" style="padding:96px 0 0">
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif; font-weight:600; font-size:clamp(26px,5vw,40px); margin:0 0 14px; letter-spacing:-0.01em">What you can change</h2>
+    <p style="font-size:17px; color:#93A2AD; margin:0 0 40px; max-width:60ch; line-height:1.6">The same five settings as EarthTurn. Hold the face, tap Customize, swipe through them. <a href="setup.html">How the editor works.</a></p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:18px">
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <h3 style="font-family:'Barlow Semi Condensed',sans-serif; font-size:19px; font-weight:600; margin:0 0 8px">Map style</h3>
+        <p style="font-size:14.5px; line-height:1.6; color:#A9B7BF; margin:0">Vintage atlas, or Dark: the same map in green on a deep blue sea, as in the second picture at the top.</p>
+      </div>
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <h3 style="font-family:'Barlow Semi Condensed',sans-serif; font-size:19px; font-weight:600; margin:0 0 8px">Zone 1</h3>
+        <p style="font-size:14.5px; line-height:1.6; color:#A9B7BF; margin:0">Off or any of 69 time zones, written at the bottom as its hour over its name and marked on the map with a cyan dot.</p>
+      </div>
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <h3 style="font-family:'Barlow Semi Condensed',sans-serif; font-size:19px; font-weight:600; margin:0 0 8px">Zone 2</h3>
+        <p style="font-size:14.5px; line-height:1.6; color:#A9B7BF; margin:0">A second place beside the first, marked with an orange dot. Turn it off and Zone 1 takes the centre of the bottom.</p>
+      </div>
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <h3 style="font-family:'Barlow Semi Condensed',sans-serif; font-size:19px; font-weight:600; margin:0 0 8px">Home</h3>
+        <p style="font-size:14.5px; line-height:1.6; color:#A9B7BF; margin:0">Puts your own white dot on the map, at the city of the zone you pick. It changes nothing else.</p>
+      </div>
+      <div style="background:#0E1720; border:1px solid #21313C; border-radius:14px; padding:22px">
+        <h3 style="font-family:'Barlow Semi Condensed',sans-serif; font-size:19px; font-weight:600; margin:0 0 8px">Date change</h3>
+        <p style="font-size:14.5px; line-height:1.6; color:#A9B7BF; margin:0">Red slashes and a +1d or -1d label, the slashes alone, or just the dashed line.</p>
+      </div>
+    </div>
+    <p style="font-size:15.5px; color:#93A2AD; margin:26px 0 0; max-width:64ch; line-height:1.6">The rim of this map is latitude 60° north. Places beyond about 55° north, such as Moscow, Anchorage and Nuuk, have their dots set just inside the rim on their own longitude, so the hour they point at is still right.</p>
+  </section>
+
+  <section style="margin:96px 0 0; background:#0E1720; border:1px solid #21313C; border-radius:16px; padding:clamp(32px,4.5vw,56px); display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap">
+    <div>
+      <h2 style="font-family:'Barlow Semi Condensed',sans-serif; font-weight:600; font-size:clamp(23px,5vw,34px); margin:0 0 8px">EarthTurn South is on its way.</h2>
+      <p style="font-size:16px; color:#93A2AD; margin:0">Until it is on Google Play, <a href="earthturn.html">EarthTurn</a> shows the same turning world from the north.</p>
+    </div>
+    <a href="https://play.google.com/store/apps/details?id=com.worldclockwatch.earthturn" target="_blank" rel="noopener" style="display:inline-block; background:#68D5C0; color:#08131A; font-weight:600; font-size:16px; padding:15px 28px; border-radius:8px; white-space:nowrap">Get EarthTurn on Google Play</a>
+  </section>
+
+  <footer style="display:grid; gap:14px; padding:44px 0 0; margin:56px 0 0; border-top:1px solid #21313C; font-size:14px; color:#7E8D97">
+    <div style="display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap">
+    <a href="index.html" style="color:#7E8D97">← All eight faces</a>
+    <span style="font-family:'IBM Plex Mono',monospace">Pictures: drawn by the live face on this page · Map data: Natural Earth</span>
+    </div>
+    <div style="display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap">
+      <span style="display:flex; gap:18px; flex-wrap:wrap"><a href="mailto:worldclockwatch@gmail.com" style="color:#7E8D97">Support: worldclockwatch@gmail.com</a><a href="privacy.html" style="color:#7E8D97">Privacy</a></span>
+      <span>© 2026 Burr Swisher. World Clock Watch, EarthTurn, Meridian, Mercator, Moonrise, Trio, Home &amp; Away, Family and 24-Hour Ring are trademarks of Burr Swisher.</span>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
