@@ -1,0 +1,1459 @@
+{
+  "about": "EarthTurn South watch face, everything needed to draw it live. EarthTurn seen from below the South Pole: the same face mirrored left to right, over a south-polar map. All positions and sizes are in the face's 450 x 450 grid (centre 225,225, disc radius 225); multiply by imagePx/450 for the delivered images. Angles are degrees clockwise from straight up, the Watch Face Format convention. Written by tools/earthturn-south/make_config.py from EarthTurn's earthturn.json.",
+  "grid": 450,
+  "centre": [
+    225,
+    225
+  ],
+  "discRadius": 225,
+  "imagePx": 1024,
+  "projection": {
+    "type": "azimuthal equidistant, South Pole at the centre, seen from below (from space over Antarctica)",
+    "latMax": 60,
+    "radiusOf": "r(lat) = (90 + lat) / 150 * 225; latitudes above 60 sit on the rim",
+    "point": "x = 225 + r * sin(lon), y = 225 - r * cos(lon), lon in degrees east; so longitude 0 is straight up and east runs clockwise in the unrotated map image",
+    "mapImageOrientation": "map-<style>.png has longitude 0 (Greenwich) straight up; this is the face's rotation zero, which the watch shows at 12:00 UTC",
+    "mapImages": "map-vintage.png and map-dark.png, drawn by tools/earthturn-south/make_maps.py from Natural Earth 1:50m, in the EarthTurn style, with the Antarctic ice shelves in colors.<style>.ice"
+  },
+  "rotation": {
+    "mapAngleDeg": "360 * (utcMinutesOfDay / 1440) - 180",
+    "sign": "positive is clockwise; the angle rises through the day, so the map turns clockwise on screen, one turn per day",
+    "rotationOrigin": "at 00:00 UTC the angle is -180 and longitude 180 points straight up; at 12:00 UTC it is 0 and Greenwich points up; the numeral a place points at is its local solar hour",
+    "rotatesWithMap": [
+      "map image",
+      "city dots",
+      "date-line label group (the label text is counter-rotated by the same angle so it stays upright)"
+    ],
+    "fixed": [
+      "night mask (sun at the top, nudged by the equation of time)",
+      "numerals",
+      "time block",
+      "zone blocks",
+      "date wedge (its start angle moves, see dateLine)"
+    ]
+  },
+  "night": {
+    "images": "EarthTurn's own masks, ../web-earthturn/night-00.png .. night-23.png, used in reverse: the south mask for index i is the file night-(23 - i). Black with alpha, sun straight up, alpha 255 where the sun is 12 degrees or more below the horizon, 0 above -0.8 degrees, linear twilight between; tint with the style's night colour and multiply alpha by nightalpha/255",
+    "sunsetAltitudeDeg": -0.8,
+    "nightAltitudeDeg": -12,
+    "obliquityDeg": 23.44,
+    "declinationSteps": [
+      -23.44,
+      -21.4017,
+      -19.3635,
+      -17.3252,
+      -15.287,
+      -13.2487,
+      -11.2104,
+      -9.1722,
+      -7.1339,
+      -5.0957,
+      -3.0574,
+      -1.0191,
+      1.0191,
+      3.0574,
+      5.0957,
+      7.1339,
+      9.1722,
+      11.2104,
+      13.2487,
+      15.287,
+      17.3252,
+      19.3635,
+      21.4017,
+      23.44
+    ],
+    "dayOfYearExpr": "day = (((floor(utcMs / 86400000) - 20454) mod 365.25) + 365.25) mod 365.25   (20454 is 2026-01-01 as days since 1970-01-01; day 0 is 1 January)",
+    "declinationExpr": "decl = -23.44 * cos(rad(360 * (day + 11) / 365))",
+    "maskIndexExpr": "index = clamp(round((decl + 23.44) / 46.88 * 23), 0, 23)",
+    "dayOfYearToMask": [
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      18,
+      18,
+      18,
+      18,
+      18,
+      18,
+      17,
+      17,
+      17,
+      17,
+      17,
+      17,
+      16,
+      16,
+      16,
+      16,
+      16,
+      15,
+      15,
+      15,
+      15,
+      15,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      13,
+      13,
+      13,
+      13,
+      13,
+      12,
+      12,
+      12,
+      12,
+      12,
+      11,
+      11,
+      11,
+      11,
+      11,
+      10,
+      10,
+      10,
+      10,
+      10,
+      9,
+      9,
+      9,
+      9,
+      9,
+      8,
+      8,
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      8,
+      8,
+      8,
+      8,
+      8,
+      9,
+      9,
+      9,
+      9,
+      9,
+      10,
+      10,
+      10,
+      10,
+      10,
+      11,
+      11,
+      11,
+      11,
+      11,
+      12,
+      12,
+      12,
+      12,
+      12,
+      13,
+      13,
+      13,
+      13,
+      13,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      15,
+      15,
+      15,
+      15,
+      15,
+      16,
+      16,
+      16,
+      16,
+      16,
+      17,
+      17,
+      17,
+      17,
+      17,
+      17,
+      18,
+      18,
+      18,
+      18,
+      18,
+      18,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23
+    ],
+    "dayOfYearToMaskNote": "index d-1 is 1-based day of year d, non-leap year; leap years drift by one day at most; these are file numbers, already reversed",
+    "equationOfTime": "B = rad(360 * (day - 80) / 365); eotMinutes = 9.87 * sin(2B) - 7.53 * cos(B) - 1.5 * sin(B)",
+    "maskAngleDeg": "eotMinutes / 4, counter-clockwise (that is, -eotMinutes / 4 clockwise), applied to the mask group about the centre",
+    "maskFile": "file = 23 - index"
+  },
+  "dateLine": {
+    "longitude": 180,
+    "drawn": "baked into map-<style>.png: from the pole to the rim along longitude 180, in the style's ink colour, 2.5 wide, dashed 9 on 6 off (grid units)",
+    "wedge": {
+      "meaning": "the part of the world on the other date from the wearer's, so the wearer is never inside the tint: before the wearer's midnight it is tomorrow's sector, from midnight at the bottom of the dial clockwise round to the date line; after it, the remainder still on yesterday",
+      "lineAngleDeg": "((360 * utcMinutesOfDay / 1440 + 180) mod 360) - 180   (where the date line points, clockwise from up, in [-180, 180))",
+      "outsideShape": "wearer outside (inWedge false): filled sector of the whole disc from 180 clockwise round to lineAngleDeg + 360",
+      "insideShape": "wearer inside (inWedge true): filled sector from lineAngleDeg clockwise to 180 (the rest of the disc)",
+      "inWedge": "floor((utcMs + 720 * 60000) / 86400000) == floor((utcMs + localOffsetMinutes * 60000) / 86400000), the same rule as the label",
+      "startAngleDeg": "((360 * utcMinutesOfDay / 1440 + 180) mod 360) - 180   (where the date line points, clockwise from up, in [-180, 180))",
+      "hatch": {
+        "colour": "#D32F2F",
+        "alpha": 180,
+        "strokePx": 2,
+        "periodPx": 9,
+        "underNight": true
+      },
+      "how": "45-degree slashes clipped to the sector, drawn between the map and the night shading, the same on both styles (since 2026-09-12; before, a translucent fill of the accent at alpha 48)",
+      "shownWhen": "datechange setting is 'labels' (default) or 'tint'; hidden for 'line'"
+    },
+    "label": {
+      "text": "'+1d' while the wearer is outside the wedge (before local midnight), '-1d' once inside it",
+      "rule": "inWedge = floor((utcMs + 720 * 60000) / 86400000) == floor((utcMs + localOffsetMinutes * 60000) / 86400000); '-1d' when true, '+1d' otherwise",
+      "placement": "70 x 32 box centred 165 from the disc centre, in the rotating map frame: at 168 degrees (12 counter-clockwise of the line, inside the wedge) for +1d, at 192 degrees for -1d; the box is counter-rotated so the text stays upright",
+      "screenAngle": "theta = wrap180(A - 180 + utcMinutesOfDay / 4), clockwise from up, A = 192 for -1d and 168 for +1d",
+      "pinned": "EarthTurn's rule mirrored: while theta is within 55 degrees of up (the time block) the label is pinned at radius 165 and exactly +/-55 degrees, upright and fixed on screen; while theta is within 50 degrees of down (the zone blocks) likewise at +/-130. +1d may sit anywhere from the line counter-clockwise round to 180, -1d anywhere from the line clockwise to 180",
+      "branches": {
+        "-1d": {
+          "frameAngle": 192,
+          "list": [
+            {
+              "afterMinute": 1172,
+              "upToMinute": 1220,
+              "wrapsMidnight": false,
+              "pinScreenAngle": -55
+            },
+            {
+              "afterMinute": 1220,
+              "upToMinute": 172,
+              "wrapsMidnight": true,
+              "pinScreenAngle": 55
+            },
+            {
+              "afterMinute": 720,
+              "upToMinute": 872,
+              "wrapsMidnight": false,
+              "pinScreenAngle": -130
+            },
+            {
+              "afterMinute": 472,
+              "upToMinute": 520,
+              "wrapsMidnight": false,
+              "pinScreenAngle": 130
+            },
+            {
+              "afterMinute": 520,
+              "upToMinute": 672,
+              "wrapsMidnight": false,
+              "pinScreenAngle": null
+            },
+            {
+              "afterMinute": 672,
+              "upToMinute": 720,
+              "wrapsMidnight": false,
+              "pinScreenAngle": null
+            }
+          ]
+        },
+        "+1d": {
+          "frameAngle": 168,
+          "list": [
+            {
+              "afterMinute": 220,
+              "upToMinute": 268,
+              "wrapsMidnight": false,
+              "pinScreenAngle": 55
+            },
+            {
+              "afterMinute": 1268,
+              "upToMinute": 220,
+              "wrapsMidnight": true,
+              "pinScreenAngle": -55
+            },
+            {
+              "afterMinute": 568,
+              "upToMinute": 720,
+              "wrapsMidnight": false,
+              "pinScreenAngle": 130
+            },
+            {
+              "afterMinute": 920,
+              "upToMinute": 968,
+              "wrapsMidnight": false,
+              "pinScreenAngle": -130
+            },
+            {
+              "afterMinute": 768,
+              "upToMinute": 920,
+              "wrapsMidnight": false,
+              "pinScreenAngle": null
+            },
+            {
+              "afterMinute": 720,
+              "upToMinute": 768,
+              "wrapsMidnight": false,
+              "pinScreenAngle": null
+            }
+          ]
+        }
+      },
+      "branchesHow": "for the label shown ('-1d' or '+1d'), take the first entry whose minutes match m = utcMinutesOfDay: afterMinute < m <= upToMinute, or with wrapsMidnight m > afterMinute or m <= upToMinute. pinScreenAngle: draw the label upright, fixed on screen, centred 165 from the centre at that angle (clockwise from up). pinScreenAngle null: draw it in the rotating map frame at frameAngle and innerRadius, counter-rotated. No entry matches: the rotating map frame at frameAngle and radius 165. EarthTurn's table with every angle mirrored.",
+      "innerRadius": 105,
+      "font": "Barlow Bold 26, centred",
+      "outline": "eight black (#000000) copies at offsets (-2,0) (2,0) (0,-2) (0,2) (-1,-1) (1,-1) (-1,1) (1,1) under the label, on both styles",
+      "colour": {
+        "vintage": "#F1E6C8",
+        "dark": "#FF6B35",
+        "why": "vintage paper over black since 2026-09-11, as the label sits on the night shade nearly always; dark keeps its accent"
+      },
+      "shownWhen": "datechange setting is 'labels' (default)"
+    }
+  },
+  "numerals": {
+    "radius": 204,
+    "angleDeg": "h * 15 - 180 (so 6 is at the left, 12 at the top, 18 at the right, 24 at the bottom: the ring runs clockwise like the map)",
+    "box": [
+      44,
+      34
+    ],
+    "font": "Barlow Bold 30 for every numeral (since 2026-09-11), centred in the box",
+    "outline": "two copies in the style's paper colour offset (-1,-1) and (+1,+1) under the numeral; the vintage night half instead as nightHalf says",
+    "colour": {
+      "vintage": "#1E4699",
+      "dark": "#9EC1FF"
+    },
+    "nightHalf": {
+      "hours": "18 round through 24 to 6",
+      "vintage": "#A9CBE0",
+      "outline": "#000000, four copies at (-2,0) (2,0) (0,-2) (0,2)",
+      "why": "those hours always sit on the night shade under the fixed sun; the map's ocean blue there since 2026-09-13, so they stand apart from the paper zone hours"
+    },
+    "shown": "3..21 always; 22, 23, 1, 2 when one zone is at the bottom; 24 instead when two zones are"
+  },
+  "pointer": {
+    "meaning": "a short red bar on the rim, outside the numerals, at the wearer's own hour",
+    "angleDeg": "360 * (localMinutesOfDay / 1440) - 180, about the centre",
+    "bar": "an arc centred on the 12 before rotation, outer edge on the rim (r 225), 5 wide, +/- 6 degrees, in dotRed, over a paper arc 7 wide and +/- 6.5 degrees"
+  },
+  "timeBlock": {
+    "box": [
+      130,
+      44,
+      190,
+      112
+    ],
+    "outline": "every line is drawn eight times in the paper colour at offsets (-2,0) (2,0) (0,-2) (0,2) (-1,-1) (1,-1) (-1,1) (1,1), then once in ink on top",
+    "time": {
+      "box": [
+        0,
+        0,
+        190,
+        54
+      ],
+      "font": "Barlow Bold 48, centred",
+      "format": "ICU 'h:mm' in 12-hour mode (gives '9:30 AM'), 'HH:mm' in 24-hour mode"
+    },
+    "date": {
+      "box": [
+        0,
+        54,
+        190,
+        30
+      ],
+      "font": "Barlow SemiBold 22, centred",
+      "format": "ICU 'EEE d MMM' (gives 'Wed 9 Sep'; the watch localises)"
+    },
+    "battery": {
+      "box": [
+        0,
+        84,
+        190,
+        28
+      ],
+      "font": "Barlow Bold 22, centred",
+      "rule": "'<n>%' at 15% and below in batteryLowVintage on vintage and batteryRed on dark, '100%' when full in batteryFullVintage on vintage and batteryAmber on dark, nothing otherwise"
+    },
+    "ink": {
+      "vintage": "#3B3220",
+      "dark": "#DDDDDD"
+    }
+  },
+  "zoneBlocks": {
+    "colours": "both styles: text #F1E6C8 (paper) over a #000000 outline, for the hour, the day marker and the name",
+    "outline": "four black copies at (-2,0) (2,0) (0,-2) (0,2) under the hour and the name; two at (-1,-1) (1,1) under the day marker",
+    "hour": "the zone's 24-hour hour, two digits, ICU 'HH'",
+    "dayMarker": "'+1d' when the zone's calendar date is ahead of the wearer's, '-1d' when behind, else nothing: floor((utcMs + zoneOffsetMin * 60000) / 86400000) - floor((utcMs + localOffsetMin * 60000) / 86400000)",
+    "minuteMarker": "'+30m', '+45m' or '+15m' after the name when ((zoneOffsetMin - localOffsetMin) mod 60) is 30, 45 or 15, else nothing",
+    "name": "the zone id in upper case (DEN, PPG), then a space and the minute marker",
+    "single": {
+      "box": [
+        95,
+        376,
+        260,
+        72
+      ],
+      "hour": {
+        "box": [
+          0,
+          0,
+          260,
+          40
+        ],
+        "font": "Barlow Bold 32, centred"
+      },
+      "dayMarker": {
+        "box": [
+          158,
+          0,
+          102,
+          40
+        ],
+        "font": "Barlow Bold 35, left-aligned"
+      },
+      "name": {
+        "box": [
+          0,
+          38,
+          260,
+          30
+        ],
+        "font": "Barlow Bold 22, centred"
+      }
+    },
+    "pair": {
+      "leftBox": [
+        100,
+        352,
+        120,
+        68
+      ],
+      "rightBox": [
+        230,
+        352,
+        120,
+        68
+      ],
+      "hour": {
+        "box": [
+          0,
+          0,
+          120,
+          40
+        ],
+        "font": "Barlow Bold 32, centred"
+      },
+      "dayMarker": {
+        "box": [
+          84,
+          0,
+          44,
+          40
+        ],
+        "font": "Barlow Bold 26, left-aligned"
+      },
+      "name": {
+        "box": [
+          0,
+          40,
+          120,
+          28
+        ],
+        "font": "Barlow Bold 20, centred"
+      }
+    },
+    "layoutRule": "Zone 2 off: Zone 1 in the single block; Zone 2 on: Zone 1 left, Zone 2 right in the pair boxes"
+  },
+  "cityDots": {
+    "shape": "14 px disc in the paper colour #F1E6C8 with a 10 px disc on top, zoneOrange for the two zones; home is a 10 px homeDot disc in a 14 px homeRing disc instead, centred on the projected city, in the rotating map frame",
+    "shownFor": [
+      "zone1",
+      "zone2",
+      "home"
+    ],
+    "zones": {
+      "ppg": {
+        "name": "Pago Pago",
+        "tz": "Pacific/Pago_Pago",
+        "lat": -14.28,
+        "lon": -170.7,
+        "x": 206.645,
+        "y": 337.0871
+      },
+      "hnl": {
+        "name": "Honolulu",
+        "tz": "Pacific/Honolulu",
+        "lat": 21.31,
+        "lon": -157.86,
+        "x": 162.0757,
+        "y": 379.654
+      },
+      "adk": {
+        "name": "Aleutians",
+        "tz": "America/Adak",
+        "lat": 51.88,
+        "lon": -176.66,
+        "x": 212.6009,
+        "y": 437.4585
+      },
+      "mrq": {
+        "name": "Marquesas",
+        "tz": "Pacific/Marquesas",
+        "lat": -8.91,
+        "lon": -140.1,
+        "x": 146.9773,
+        "y": 318.3141
+      },
+      "gam": {
+        "name": "Gambier",
+        "tz": "Pacific/Gambier",
+        "lat": -23.12,
+        "lon": -134.97,
+        "x": 154.0259,
+        "y": 295.8998
+      },
+      "anc": {
+        "name": "Anchorage",
+        "tz": "America/Anchorage",
+        "lat": 61.22,
+        "lon": -149.9,
+        "x": 115.6707,
+        "y": 413.603,
+        "onRim": true
+      },
+      "pcn": {
+        "name": "Pitcairn",
+        "tz": "Pacific/Pitcairn",
+        "lat": -25.07,
+        "lon": -130.1,
+        "x": 150.5005,
+        "y": 287.7344
+      },
+      "lax": {
+        "name": "Los Angeles",
+        "tz": "America/Los_Angeles",
+        "lat": 34.05,
+        "lon": -118.24,
+        "x": 61.0729,
+        "y": 313.0443
+      },
+      "phx": {
+        "name": "Phoenix",
+        "tz": "America/Phoenix",
+        "lat": 33.45,
+        "lon": -112.07,
+        "x": 53.3936,
+        "y": 294.5775
+      },
+      "den": {
+        "name": "Denver",
+        "tz": "America/Denver",
+        "lat": 39.74,
+        "lon": -104.99,
+        "x": 37.0124,
+        "y": 275.336
+      },
+      "mex": {
+        "name": "Mexico City",
+        "tz": "America/Mexico_City",
+        "lat": 19.43,
+        "lon": -99.13,
+        "x": 62.9346,
+        "y": 251.0457
+      },
+      "chi": {
+        "name": "Chicago",
+        "tz": "America/Chicago",
+        "lat": 41.88,
+        "lon": -87.63,
+        "x": 27.3492,
+        "y": 216.8196
+      },
+      "ipc": {
+        "name": "Easter Island",
+        "tz": "Pacific/Easter",
+        "lat": -27.11,
+        "lon": -109.35,
+        "x": 135.9938,
+        "y": 256.2568
+      },
+      "bog": {
+        "name": "Bogota",
+        "tz": "America/Bogota",
+        "lat": 4.71,
+        "lon": -74.07,
+        "x": 88.3906,
+        "y": 186.0084
+      },
+      "hav": {
+        "name": "Havana",
+        "tz": "America/Havana",
+        "lat": 23.11,
+        "lon": -82.37,
+        "x": 56.8372,
+        "y": 202.4727
+      },
+      "nyc": {
+        "name": "New York",
+        "tz": "America/New_York",
+        "lat": 40.71,
+        "lon": -74.01,
+        "x": 36.5208,
+        "y": 170.9901
+      },
+      "ccs": {
+        "name": "Caracas",
+        "tz": "America/Caracas",
+        "lat": 10.48,
+        "lon": -66.9,
+        "x": 86.3645,
+        "y": 165.8669
+      },
+      "yhz": {
+        "name": "Halifax",
+        "tz": "America/Halifax",
+        "lat": 44.65,
+        "lon": -63.57,
+        "x": 44.1357,
+        "y": 135.1001
+      },
+      "scl": {
+        "name": "Santiago",
+        "tz": "America/Santiago",
+        "lat": -33.45,
+        "lon": -70.67,
+        "x": 144.9568,
+        "y": 196.9222
+      },
+      "yyt": {
+        "name": "St. John's",
+        "tz": "America/St_Johns",
+        "lat": 47.56,
+        "lon": -52.71,
+        "x": 60.8402,
+        "y": 99.989
+      },
+      "sao": {
+        "name": "Sao Paulo",
+        "tz": "America/Sao_Paulo",
+        "lat": -23.55,
+        "lon": -46.63,
+        "x": 152.5428,
+        "y": 156.5525
+      },
+      "mqc": {
+        "name": "Miquelon",
+        "tz": "America/Miquelon",
+        "lat": 47.1,
+        "lon": -56.38,
+        "x": 53.7495,
+        "y": 111.1352
+      },
+      "fen": {
+        "name": "Noronha",
+        "tz": "America/Noronha",
+        "lat": -3.85,
+        "lon": -32.42,
+        "x": 155.7197,
+        "y": 115.9159
+      },
+      "goh": {
+        "name": "Nuuk",
+        "tz": "America/Nuuk",
+        "lat": 64.18,
+        "lon": -51.72,
+        "x": 53.8716,
+        "y": 89.9479,
+        "onRim": true
+      },
+      "cpv": {
+        "name": "Cape Verde",
+        "tz": "Atlantic/Cape_Verde",
+        "lat": 14.93,
+        "lon": -23.51,
+        "x": 162.2137,
+        "y": 80.6703
+      },
+      "azo": {
+        "name": "Azores",
+        "tz": "Atlantic/Azores",
+        "lat": 37.74,
+        "lon": -25.67,
+        "x": 141.997,
+        "y": 52.3011
+      },
+      "acc": {
+        "name": "Accra",
+        "tz": "Africa/Accra",
+        "lat": 5.6,
+        "lon": -0.19,
+        "x": 224.5245,
+        "y": 81.6008
+      },
+      "utc": {
+        "name": "UTC",
+        "tz": "UTC",
+        "lat": 51.48,
+        "lon": 0,
+        "x": 225,
+        "y": 12.78
+      },
+      "cmn": {
+        "name": "Casablanca",
+        "tz": "Africa/Casablanca",
+        "lat": 33.57,
+        "lon": -7.59,
+        "x": 200.5177,
+        "y": 41.269
+      },
+      "lon": {
+        "name": "London",
+        "tz": "Europe/London",
+        "lat": 51.51,
+        "lon": -0.13,
+        "x": 224.5184,
+        "y": 12.7355
+      },
+      "los": {
+        "name": "Lagos",
+        "tz": "Africa/Lagos",
+        "lat": 6.52,
+        "lon": 3.38,
+        "x": 233.5359,
+        "y": 80.4718
+      },
+      "ber": {
+        "name": "Berlin",
+        "tz": "Europe/Berlin",
+        "lat": 52.52,
+        "lon": 13.41,
+        "x": 274.5794,
+        "y": 17.0486
+      },
+      "mtx": {
+        "name": "Montreux",
+        "tz": "Europe/Zurich",
+        "lat": 46.43,
+        "lon": 6.91,
+        "x": 249.6209,
+        "y": 21.8415
+      },
+      "par": {
+        "name": "Paris",
+        "tz": "Europe/Paris",
+        "lat": 48.86,
+        "lon": 2.35,
+        "x": 233.5407,
+        "y": 16.8852
+      },
+      "jnb": {
+        "name": "Johannesburg",
+        "tz": "Africa/Johannesburg",
+        "lat": -26.2,
+        "lon": 28.05,
+        "x": 270.0021,
+        "y": 140.5412
+      },
+      "ath": {
+        "name": "Athens",
+        "tz": "Europe/Athens",
+        "lat": 37.98,
+        "lon": 23.73,
+        "x": 302.2539,
+        "y": 49.2607
+      },
+      "bey": {
+        "name": "Beirut",
+        "tz": "Asia/Beirut",
+        "lat": 33.89,
+        "lon": 35.5,
+        "x": 332.9149,
+        "y": 73.7088
+      },
+      "cai": {
+        "name": "Cairo",
+        "tz": "Africa/Cairo",
+        "lat": 30.04,
+        "lon": 31.24,
+        "x": 318.3834,
+        "y": 71.0483
+      },
+      "kiv": {
+        "name": "Chisinau",
+        "tz": "Europe/Chisinau",
+        "lat": 47.01,
+        "lon": 28.86,
+        "x": 324.1961,
+        "y": 45.0096
+      },
+      "gza": {
+        "name": "Gaza",
+        "tz": "Asia/Gaza",
+        "lat": 31.5,
+        "lon": 34.47,
+        "x": 328.1489,
+        "y": 74.749
+      },
+      "jrs": {
+        "name": "Jerusalem",
+        "tz": "Asia/Jerusalem",
+        "lat": 31.77,
+        "lon": 35.22,
+        "x": 330.3403,
+        "y": 75.7812
+      },
+      "mow": {
+        "name": "Moscow",
+        "tz": "Europe/Moscow",
+        "lat": 55.76,
+        "lon": 37.62,
+        "x": 358.0719,
+        "y": 52.3273,
+        "onRim": true
+      },
+      "thr": {
+        "name": "Tehran",
+        "tz": "Asia/Tehran",
+        "lat": 35.69,
+        "lon": 51.39,
+        "x": 372.3234,
+        "y": 107.3511
+      },
+      "dxb": {
+        "name": "Dubai",
+        "tz": "Asia/Dubai",
+        "lat": 25.2,
+        "lon": 55.27,
+        "x": 367.015,
+        "y": 126.5541
+      },
+      "kbl": {
+        "name": "Kabul",
+        "tz": "Asia/Kabul",
+        "lat": 34.53,
+        "lon": 69.17,
+        "x": 399.586,
+        "y": 158.5764
+      },
+      "khi": {
+        "name": "Karachi",
+        "tz": "Asia/Karachi",
+        "lat": 24.86,
+        "lon": 67.01,
+        "x": 383.6055,
+        "y": 157.7086
+      },
+      "ind": {
+        "name": "India",
+        "tz": "Asia/Kolkata",
+        "lat": 22.57,
+        "lon": 88.36,
+        "x": 393.7858,
+        "y": 220.1675
+      },
+      "ktm": {
+        "name": "Kathmandu",
+        "tz": "Asia/Kathmandu",
+        "lat": 27.72,
+        "lon": 85.32,
+        "x": 400.9913,
+        "y": 210.5927
+      },
+      "dac": {
+        "name": "Dhaka",
+        "tz": "Asia/Dhaka",
+        "lat": 23.81,
+        "lon": 90.41,
+        "x": 395.7106,
+        "y": 226.2216
+      },
+      "rgn": {
+        "name": "Yangon",
+        "tz": "Asia/Yangon",
+        "lat": 16.87,
+        "lon": 96.2,
+        "x": 384.3674,
+        "y": 242.3128
+      },
+      "bkk": {
+        "name": "Bangkok",
+        "tz": "Asia/Bangkok",
+        "lat": 13.76,
+        "lon": 100.5,
+        "x": 378.0338,
+        "y": 253.3631
+      },
+      "sha": {
+        "name": "China",
+        "tz": "Asia/Shanghai",
+        "lat": 39.9,
+        "lon": 116.4,
+        "x": 399.5294,
+        "y": 311.6372
+      },
+      "hkg": {
+        "name": "Hong Kong",
+        "tz": "Asia/Hong_Kong",
+        "lat": 22.32,
+        "lon": 114.17,
+        "x": 378.7101,
+        "y": 293.9834
+      },
+      "sin": {
+        "name": "Singapore",
+        "tz": "Asia/Singapore",
+        "lat": 1.35,
+        "lon": 103.82,
+        "x": 358.0583,
+        "y": 257.7315
+      },
+      "euc": {
+        "name": "Eucla",
+        "tz": "Australia/Eucla",
+        "lat": -31.68,
+        "lon": 128.88,
+        "x": 293.0999,
+        "y": 279.9104
+      },
+      "sel": {
+        "name": "Seoul",
+        "tz": "Asia/Seoul",
+        "lat": 37.57,
+        "lon": 126.98,
+        "x": 377.8631,
+        "y": 340.107
+      },
+      "tyo": {
+        "name": "Tokyo",
+        "tz": "Asia/Tokyo",
+        "lat": 35.68,
+        "lon": 139.69,
+        "x": 346.9579,
+        "y": 368.757
+      },
+      "drw": {
+        "name": "Darwin",
+        "tz": "Australia/Darwin",
+        "lat": -12.46,
+        "lon": 130.84,
+        "x": 312.993,
+        "y": 301.0608
+      },
+      "adl": {
+        "name": "Adelaide",
+        "tz": "Australia/Adelaide",
+        "lat": -34.93,
+        "lon": 138.6,
+        "x": 279.6277,
+        "y": 286.9629
+      },
+      "bne": {
+        "name": "Brisbane",
+        "tz": "Australia/Brisbane",
+        "lat": -27.47,
+        "lon": 153.03,
+        "x": 267.5383,
+        "y": 308.5942
+      },
+      "syd": {
+        "name": "Sydney",
+        "tz": "Australia/Sydney",
+        "lat": -33.87,
+        "lon": 151.21,
+        "x": 265.5484,
+        "y": 298.7877
+      },
+      "ldh": {
+        "name": "Lord Howe",
+        "tz": "Australia/Lord_Howe",
+        "lat": -31.55,
+        "lon": 159.08,
+        "x": 256.3056,
+        "y": 306.8955
+      },
+      "nou": {
+        "name": "Noumea",
+        "tz": "Pacific/Noumea",
+        "lat": -22.28,
+        "lon": 166.46,
+        "x": 248.7823,
+        "y": 323.7568
+      },
+      "nlk": {
+        "name": "Norfolk Is.",
+        "tz": "Pacific/Norfolk",
+        "lat": -29.04,
+        "lon": 167.95,
+        "x": 244.0895,
+        "y": 314.4252
+      },
+      "nan": {
+        "name": "Fiji",
+        "tz": "Pacific/Fiji",
+        "lat": -18.14,
+        "lon": 178.44,
+        "x": 227.9345,
+        "y": 332.75
+      },
+      "akl": {
+        "name": "Auckland",
+        "tz": "Pacific/Auckland",
+        "lat": -36.85,
+        "lon": 174.76,
+        "x": 232.2811,
+        "y": 304.3918
+      },
+      "cht": {
+        "name": "Chatham",
+        "tz": "Pacific/Chatham",
+        "lat": -43.95,
+        "lon": -176.55,
+        "x": 220.8432,
+        "y": 293.9498
+      },
+      "apw": {
+        "name": "Apia",
+        "tz": "Pacific/Apia",
+        "lat": -13.83,
+        "lon": -171.76,
+        "x": 208.625,
+        "y": 338.0755
+      },
+      "cxi": {
+        "name": "Kiritimati",
+        "tz": "Pacific/Kiritimati",
+        "lat": 1.87,
+        "lon": -157.4,
+        "x": 172.0422,
+        "y": 352.223
+      },
+      "bue": {
+        "name": "Buenos Aires",
+        "tz": "America/Argentina/Buenos_Aires",
+        "lat": -34.6,
+        "lon": -58.38,
+        "x": 154.2367,
+        "y": 181.4321
+      },
+      "per": {
+        "name": "Perth",
+        "tz": "Australia/Perth",
+        "lat": -31.95,
+        "lon": 115.86,
+        "x": 303.3555,
+        "y": 262.9798
+      },
+      "mel": {
+        "name": "Melbourne",
+        "tz": "Australia/Melbourne",
+        "lat": -37.81,
+        "lon": 144.96,
+        "x": 269.9472,
+        "y": 289.096
+      }
+    },
+    "pickerOrder": [
+      "ppg",
+      "hnl",
+      "adk",
+      "mrq",
+      "gam",
+      "anc",
+      "pcn",
+      "lax",
+      "phx",
+      "den",
+      "mex",
+      "chi",
+      "ipc",
+      "bog",
+      "hav",
+      "nyc",
+      "ccs",
+      "yhz",
+      "scl",
+      "yyt",
+      "sao",
+      "mqc",
+      "fen",
+      "goh",
+      "cpv",
+      "azo",
+      "acc",
+      "utc",
+      "cmn",
+      "lon",
+      "los",
+      "ber",
+      "mtx",
+      "par",
+      "jnb",
+      "ath",
+      "bey",
+      "cai",
+      "kiv",
+      "gza",
+      "jrs",
+      "mow",
+      "thr",
+      "dxb",
+      "kbl",
+      "khi",
+      "ind",
+      "ktm",
+      "dac",
+      "rgn",
+      "bkk",
+      "sha",
+      "hkg",
+      "sin",
+      "euc",
+      "sel",
+      "tyo",
+      "drw",
+      "adl",
+      "bne",
+      "syd",
+      "ldh",
+      "nou",
+      "nlk",
+      "nan",
+      "akl",
+      "cht",
+      "apw",
+      "cxi"
+    ],
+    "defaults": {
+      "zone1": "jnb",
+      "zone2": "scl",
+      "home": "syd"
+    },
+    "rim": "cities north of about 55 degrees would put part of the dot off the disc; they sit at radius 218 instead, on their own longitude (onRim)"
+  },
+  "colors": {
+    "vintage": {
+      "ink": "#3B3220",
+      "paper": "#F1E6C8",
+      "ocean": "#A9CBE0",
+      "land": "#D9C88F",
+      "coast": "#6B5A3A",
+      "grid": "#4A4030",
+      "gridAlpha": 115,
+      "numerals": "#1E4699",
+      "numeralsNight": "#A9CBE0",
+      "numeralsNightOutline": "#000000",
+      "timeText": "#3B3220",
+      "outline": "#F1E6C8",
+      "accent": "#C2551F",
+      "dateLabel": "#F1E6C8",
+      "dateLabelOutline": "#000000",
+      "night": "#1A2233",
+      "nightAlpha": 140,
+      "ice": "#EEEBDD"
+    },
+    "dark": {
+      "ink": "#DDDDDD",
+      "paper": "#000000",
+      "ocean": "#132C45",
+      "land": "#2E4A3A",
+      "coast": "#5F8F6A",
+      "grid": "#FFFFFF",
+      "gridAlpha": 31,
+      "numerals": "#9EC1FF",
+      "numeralsNight": "#9EC1FF",
+      "numeralsNightOutline": "#000000",
+      "timeText": "#DDDDDD",
+      "outline": "#000000",
+      "accent": "#FF6B35",
+      "dateLabel": "#FF6B35",
+      "dateLabelOutline": "#000000",
+      "night": "#000000",
+      "nightAlpha": 115,
+      "ice": "#4A6470"
+    },
+    "shared": {
+      "dotRed": "#D32F2F",
+      "zoneOrange": "#C2551F",
+      "zone1Cyan": "#2FB8C8",
+      "zone1Code": "#4FD8E6",
+      "zone2Code": "#FF8A3D",
+      "dotRing": "#F1E6C8",
+      "homeDot": "#FFFFFF",
+      "homeRing": "#000000",
+      "batteryRed": "#EF7067",
+      "batteryAmber": "#FFC107",
+      "batteryFullVintage": "#2E7D32",
+      "batteryLowVintage": "#B71C1C",
+      "zoneInk": "#F1E6C8",
+      "zoneOutline": "#000000"
+    }
+  },
+  "fonts": {
+    "family": "Barlow (Google Fonts, OFL)",
+    "files": {
+      "bold": "fonts/barlow_bold.ttf",
+      "semibold": "fonts/barlow_semibold.ttf",
+      "medium": "fonts/barlow_medium.ttf",
+      "light": "fonts/barlow_light.ttf"
+    },
+    "sizes": "font sizes above are the face's pixel sizes in the 450 grid"
+  },
+  "ambient": "in ambient mode the watch shows the dark style with no dots, no wedge, no label and no zone blocks; not needed on the web",
+  "renderChecklist": [
+    "Everything in EarthTurn's checklist holds; the differences are only the signs above: the map, the numerals, the pointer, the date line and the wedge are mirrored, the night mask file is 23 - index, and the mask turns by -eot/4.",
+    "Draw the date-line label (dateLine.label): '+1d' or '-1d' in Barlow Bold 26, colors.<style>.dateLabel over eight black outline copies, placed by dateLine.label.branches (pinned on screen by the time block and the zone blocks, else in the rotating map frame). It is shown whenever the datechange setting is 'labels' (the default), which is the setting the reference captures use.",
+    "Hatch the other-date side with red slashes under the night (dateLine.wedge.hatch), not a flat tint; draw the zone dots orange and home white in a black ring above everything else on the map; draw every numeral at 30 px, the vintage night half in numeralsNight over black.",
+    "Format the time and date with the en-US locale, as the watch does: ICU 'h:mm a' gives '5:46 AM' (no leading zero, AM/PM), 'EEE, MMM d' gives 'Wed, Sep 9'. Not the en-GB forms '5:46' and 'Wed 2 Sept'.",
+    "Tint the other-date side (dateLine.wedge): outsideShape when inWedge is false, insideShape when it is true; the wearer's own place is never inside the tint."
+  ]
+}
