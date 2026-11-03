@@ -177,7 +177,7 @@
   "colors": {
     "vintage": {"ink": "#3B3220", "paper": "#F1E6C8", "ocean": "#A9CBE0", "land": "#D9C88F", "coast": "#6B5A3A", "grid": "#4A4030", "gridAlpha": 115, "numerals": "#1E4699", "numeralsNight": "#A9CBE0", "numeralsNightOutline": "#000000", "timeText": "#3B3220", "outline": "#F1E6C8", "accent": "#C2551F", "dateLabel": "#F1E6C8", "dateLabelOutline": "#000000", "night": "#1A2233", "nightAlpha": 140},
     "dark": {"ink": "#DDDDDD", "paper": "#000000", "ocean": "#132C45", "land": "#2E4A3A", "coast": "#5F8F6A", "grid": "#FFFFFF", "gridAlpha": 31, "numerals": "#9EC1FF", "numeralsNight": "#9EC1FF", "numeralsNightOutline": "#000000", "timeText": "#DDDDDD", "outline": "#000000", "accent": "#FF6B35", "dateLabel": "#FF6B35", "dateLabelOutline": "#000000", "night": "#000000", "nightAlpha": 115},
-    "shared": {"dotRed": "#D32F2F", "zoneOrange": "#C2551F", "zone1Cyan": "#2FB8C8", "zone1Code": "#4FD8E6", "zone2Code": "#FF8A3D", "dotRing": "#F1E6C8", "homeDot": "#FFFFFF", "homeRing": "#000000", "batteryRed": "#EF7067", "batteryAmber": "#FFC107", "batteryFullVintage": "#2E7D32", "batteryLowVintage": "#B71C1C", "zoneInk": "#F1E6C8", "zoneOutline": "#000000"}
+    "shared": {"dotRed": "#D32F2F", "zoneOrange": "#C2551F", "zone1Dot": "#8A3F7A", "zone1Ring": "#F1E6C8", "zone1Code": "#D58AC4", "zone2Code": "#FF8A3D", "dotRing": "#F1E6C8", "homeDot": "#FFFFFF", "homeRing": "#000000", "batteryRed": "#EF7067", "batteryAmber": "#FFC107", "batteryFullVintage": "#2E7D32", "batteryLowVintage": "#B71C1C", "zoneInk": "#F1E6C8", "zoneOutline": "#000000"}
   },
   "fonts": {
     "family": "Barlow (Google Fonts, OFL)",

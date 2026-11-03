@@ -1424,8 +1424,9 @@
     "shared": {
       "dotRed": "#D32F2F",
       "zoneOrange": "#C2551F",
-      "zone1Cyan": "#2FB8C8",
-      "zone1Code": "#4FD8E6",
+      "zone1Dot": "#8A3F7A",
+      "zone1Ring": "#F1E6C8",
+      "zone1Code": "#D58AC4",
       "zone2Code": "#FF8A3D",
       "dotRing": "#F1E6C8",
       "homeDot": "#FFFFFF",

@@ -276,6 +276,16 @@
         ctx.globalAlpha = 1;
       }
 
+      // 3b. the dots, turning with the map: over the night, under the labels, time and numerals (2026-11-03)
+      ctx.save();
+      ctx.translate(C, C); ctx.rotate(rad(mapAngle)); ctx.translate(-C, -C);
+      for (const [id, fill, ring] of [[this.zone1, S.zone1Dot || S.zoneOrange, S.zone1Ring || S.dotRing], [twoZones ? this.zone2 : null, S.zoneOrange, S.dotRing], [this.home, S.homeDot, S.homeRing]]) {
+        const z = id && zones[id]; if (!z) continue;
+        ctx.beginPath(); ctx.arc(z.x, z.y, 7, 0, Math.PI * 2); ctx.fillStyle = ring; ctx.fill();
+        ctx.beginPath(); ctx.arc(z.x, z.y, 5, 0, Math.PI * 2); ctx.fillStyle = fill; ctx.fill();
+      }
+      ctx.restore();
+
       // 4. the +1d / -1d label, placed by the face's own table (mirrored)
       const side = inWedge ? -1 : 1, labelText = inWedge ? '-1d' : '+1d';
       const place = this.labelPlace(side, utcMin);
@@ -314,15 +324,6 @@
         else this.outlined(ctx, String(h), x, y, Cs.numerals, Cs.paper, HALO2);
       }
 
-      // 8. the dots, turning with the map, above everything else on it
-      ctx.save();
-      ctx.translate(C, C); ctx.rotate(rad(mapAngle)); ctx.translate(-C, -C);
-      for (const [id, fill, ring] of [[this.zone1, S.zone1Cyan || S.zoneOrange, S.dotRing], [twoZones ? this.zone2 : null, S.zoneOrange, S.dotRing], [this.home, S.homeDot, S.homeRing]]) {
-        const z = id && zones[id]; if (!z) continue;
-        ctx.beginPath(); ctx.arc(z.x, z.y, 7, 0, Math.PI * 2); ctx.fillStyle = ring; ctx.fill();
-        ctx.beginPath(); ctx.arc(z.x, z.y, 5, 0, Math.PI * 2); ctx.fillStyle = fill; ctx.fill();
-      }
-      ctx.restore();
       ctx.restore();
 
       // 9. the zones at the bottom, paper over black
